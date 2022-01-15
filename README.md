@@ -1,3 +1,6 @@
+This repository is a fork of dilsonpereira/Minimum-Cost-Perfect-Matching
+The library is converted to a header only library.
+
 # Algorithms for Maximum Cardinality Matching and Minimum Cost Perfect Matching Problems in General Graphs
 
 
