@@ -1,14 +1,28 @@
 #pragma once
+#include <cmath>
 
 namespace mcpm {
-#define EPSILON 0.000001
-#define INFINITO 1000000000.0
-#define GREATER(A, B) ((A) - (B) > EPSILON)
-#define LESS(A, B) ((B) - (A) > EPSILON)
-#define EQUAL(A, B) (fabs((A) - (B)) < EPSILON)
-#define GREATER_EQUAL(A, B) (GREATER((A),(B)) || EQUAL((A),(B)))
-#define LESS_EQUAL(A, B) (LESS((A),(B)) || EQUAL((A),(B)))
-#define MIN(A, B) (LESS((A),(B)) ? (A) : (B))
-#define MAX(A, B) (LESS((A),(B)) ? (B) : (A))
+	constexpr double EPSILON = 0.000001;
+	constexpr double INFINITO = 1000000000.0;
 
+	template <typename T, typename U>
+		inline bool GREATER(T a, U b) { return (a - b) > EPSILON; }
+
+	template <typename T>
+		inline bool LESS(T a, T b) { return (b - a) > EPSILON; }
+
+	template <typename T>
+		inline bool EQUAL(T a, T b) { return std::abs(b - a) < EPSILON; }
+
+	template <typename T>
+		inline bool GREATER_EQUAL(T a, T b) { return GREATER(a, b) || EQUAL(a, b); }
+
+	template <typename T>
+		inline bool LESS_EQUAL(T a, T b) { return LESS(a, b) || EQUAL(a, b); }
+
+	template <typename T>
+		inline T MIN(T a, T b) { return std::min(a, b); }
+
+	template <typename T>
+		inline T MAX(T a, T b) { return std::max(a, b); }
 }

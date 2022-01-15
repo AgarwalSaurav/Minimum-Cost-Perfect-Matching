@@ -1,3 +1,2 @@
-mkdir obj/
-mkdir lib/
+mkdir -p bin/
 make -j4
